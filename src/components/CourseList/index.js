@@ -11,7 +11,7 @@ const CourseList = () => {
     return (
         <div>
             <div className="row">
-                <div class="col-sm-3">
+                <div className="col-sm-3">
                     <div className="card" >
                         <div className="card-body">
                             <button type="button" onClick={addCourse} className="btn btn-success" >RenderRedux</button>
@@ -20,7 +20,7 @@ const CourseList = () => {
                 </div>
             </div>
             <div className="row">
-                <div class="col-sm-3">
+                <div className="col-sm-3">
                     <div className="card" >
                         <div className="card-body">
                             <ul className="list-group ">
@@ -28,7 +28,7 @@ const CourseList = () => {
                                     courses.map((course, index) => {
                                         let classNameParam = "list-group-item";
                                         if (index % 2 === 0) classNameParam += " active"
-                                        return (<li className={classNameParam} key={course}>{course}</li>);
+                                        return (<li className={classNameParam} key={course+index}>{course}</li>);
                                     })
                                 }
                             </ul>
