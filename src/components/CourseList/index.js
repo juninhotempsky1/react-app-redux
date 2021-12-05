@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
+
 const CourseList = () => {
     const courses = useSelector(state => state.data);
     const dispatch = useDispatch();
@@ -9,17 +10,32 @@ const CourseList = () => {
     }
     return (
         <div>
-            <div>
-                <button type="button" onClick={addCourse} >Renderizar</button>
+            <div className="row">
+                <div class="col-sm-3">
+                    <div className="card" >
+                        <div className="card-body">
+                            <button type="button" onClick={addCourse} className="btn btn-success" >RenderRedux</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <ul>
-                    {
-                        courses.map(course => <li key={course}>{course}</li>)
-                    }
-                </ul>
+            <div className="row">
+                <div class="col-sm-3">
+                    <div className="card" >
+                        <div className="card-body">
+                            <ul className="list-group ">
+                                {
+                                    courses.map((course, index) => {
+                                        let classNameParam = "list-group-item";
+                                        if (index % 2 === 0) classNameParam += " active"
+                                        return (<li className={classNameParam} key={course}>{course}</li>);
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     );
 }
